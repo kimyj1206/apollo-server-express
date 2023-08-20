@@ -1,0 +1,18 @@
+# posts: [Post] => Post 배열을 반환한다는 의미
+type Query {
+  posts: [Post]
+  # id로 데이터 가져오기
+  post(id: ID!): Post
+}
+
+# mutation : query는 read만 가능했는데 나머지 create, update, delete 구현에 mutation을 사용
+type Mutation {
+  addNewPost(id: ID!, title: String!, description: String!): Post
+}
+
+type Post {
+  id: ID!
+  title: String!
+  description: String!
+  comments: [Comment]
+}

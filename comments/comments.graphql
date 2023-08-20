@@ -1,0 +1,15 @@
+type Query {
+  comments: [Comment]
+  # 특정 숫자 이상의 좋아요를 받은 것만 가져오겠다는 필터링 코드 추가
+  commentsByLikes(minLikes: Int!): [Comment]
+}
+
+type Mutation {
+  addNewComment(id: ID!, text: String!): Comment
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  likes: Int
+}
